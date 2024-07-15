@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "meditation.app.mock"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "meditation.app.mock"
     },
     "web": {
       "bundler": "metro",
@@ -27,6 +29,15 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/HelveticaNeue.ttf",
+            "./assets/fonts/comicate.ttf"
+          ]
+        }
+      ],
       "expo-router"
     ],
     "experiments": {

@@ -1,0 +1,69 @@
+import React, { useMemo } from "react";
+import { ActivityIndicator, Pressable, PressableProps } from "react-native";
+import { VariantProps, tv } from 'tailwind-variants';
+import { Text } from "./text";
+import colors from "./colors";
+
+const buttonVariants = tv({
+  slots: {
+    base: "w-full min-h-[63px] bg-primary rounded-[38px] items-center justify-center",
+    text: "text-white text-sm font-bold"
+  },
+  variants: {
+    variant: {
+      primary: {
+        base: 'bg-primary',
+        text: 'text-white text-sm font-bold',
+      },
+      outline: {
+        base: 'bg-transparent border-border-grey border',
+        text: 'text-sm text-text-black font-bold',
+      },
+    }
+  },
+});
+
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+interface Props extends ButtonVariants, Omit<PressableProps, 'disabled'> {
+  isLoading?: boolean;
+  textClassName?: string;
+  className?: string;
+  label?: string;
+}
+
+export const Button = ({
+  isLoading = false,
+  variant = 'primary',
+  label = '',
+  className,
+  textClassName,
+  children,
+  ...props
+}: Props) => {
+  const styles = useMemo(() => {
+    return buttonVariants({ variant })
+  }, [variant]);
+
+  const buttonContent = useMemo(() => {
+    if (isLoading) {
+      return (
+        <ActivityIndicator color={colors.primary} />
+      )
+    } else if (children && typeof children != 'string') {
+      return children
+    }
+
+    return (
+      <Text className={styles.text({ className: textClassName })}>{label}</Text>
+    )
+  }, [label, children, isLoading, styles]);
+
+  return (
+    <Pressable
+      className={styles.base({ className })}
+      {...props}>
+      {buttonContent}
+    </Pressable>
+  )
+};
+
