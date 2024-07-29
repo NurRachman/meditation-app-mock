@@ -3,6 +3,7 @@ export * from './text';
 export * from './image';
 export * from './button';
 export * from './checkbox';
+export * from './input';
 export {
   ActivityIndicator,
   Pressable,

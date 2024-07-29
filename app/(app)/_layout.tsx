@@ -1,14 +1,28 @@
-import { Redirect } from "expo-router";
+import { Redirect, Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function RootLayout() {
-  if (true) {
-    return <Redirect href="/onboarding" />
-  }
+
+  return RootLayoutNav();
+}
+
+function RootLayoutNav() {
   return (
-    <View>
-      <Text>Root Layout</Text>
-    </View>
+    <Providers>
+      <Stack screenOptions={{ headerShown: false }}>
+        {/* <Stack.Screen name="topic-list" options={{ headerShown: false }} /> */}
+      </Stack>
+    </Providers>
+  );
+}
+
+function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <GestureHandlerRootView className="flex-1">
+      <StatusBar style="dark" />
+      {children}
+    </GestureHandlerRootView>
   )
 }

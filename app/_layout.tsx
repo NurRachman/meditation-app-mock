@@ -3,14 +3,16 @@ import { useReactNavigationDevTools } from "@dev-plugins/react-navigation";
 import { SplashScreen, Stack, useNavigationContainerRef } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { Platform } from "react-native";
 import { useFonts } from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    helveticaNeue: require('../assets/fonts/HelveticaNeue.ttf'),
+    'HelveticaNeueThin': require('../assets/fonts/HelveticaNeueThin.otf'),
+    'HelveticaNeueBold': require('../assets/fonts/HelveticaNeueBold.otf'),
+    'HelveticaNeueLight': require('../assets/fonts/HelveticaNeueLight.otf'),
+    'HelveticaNeueMedium': require('../assets/fonts/HelveticaNeueMedium.otf'),
   });
   const navigationRef = useNavigationContainerRef();
   useReactNavigationDevTools(navigationRef);
@@ -31,11 +33,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <Providers>
-      <Stack>
-        <Stack.Screen name="onboarding" options={{ headerShown: false }} />
-        <Stack.Screen name="sign-up" options={{ headerShown: false }} />
-        <Stack.Screen name="(app)" options={{ headerShown: false }} />
-      </Stack>
+      <Stack screenOptions={{ headerShown: false }} />
     </Providers>
   );
 }

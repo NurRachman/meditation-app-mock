@@ -7,17 +7,17 @@ import colors from "./colors";
 const buttonVariants = tv({
   slots: {
     base: "w-full min-h-[63px] bg-primary rounded-[38px] items-center justify-center",
-    text: "text-white text-sm font-bold"
+    text: "text-white text-sm"
   },
   variants: {
     variant: {
       primary: {
         base: 'bg-primary',
-        text: 'text-white text-sm font-bold',
+        text: 'text-white text-sm',
       },
       outline: {
         base: 'bg-transparent border-border-grey border',
-        text: 'text-sm text-text-black font-bold',
+        text: 'text-sm text-text-black',
       },
     }
   },
@@ -54,7 +54,7 @@ export const Button = ({
     }
 
     return (
-      <Text className={styles.text({ className: textClassName })}>{label}</Text>
+      <Text variant="medium" className={styles.text({ className: textClassName })}>{label}</Text>
     )
   }, [label, children, isLoading, styles]);
 

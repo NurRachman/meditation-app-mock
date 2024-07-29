@@ -1,17 +1,13 @@
 import { MotiView } from "moti";
 import React, { useCallback } from "react";
-import { Pressable, View, type PressableProps } from 'react-native';
+import { Pressable, } from 'react-native';
+import type { PressableProps } from 'react-native'
 import colros from '@/ui/colors';
 import { twMerge as tw } from 'tailwind-merge';
 import colors from "@/ui/colors";
 import Svg, { Path } from 'react-native-svg';
 
-const SIZE = 20;
-const WIDTH = 50;
-const HEIGHT = 28;
-const THUMB_HEIGHT = 22;
-const THUMB_WIDTH = 22;
-const THUMB_OFFSET = 4;
+const SIZE = 24;
 
 export interface RootProps extends Omit<PressableProps, 'onPress'> {
   onChange: (checked: boolean) => void;

@@ -33,8 +33,10 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/HelveticaNeue.ttf",
-            "./assets/fonts/comicate.ttf"
+            "./assets/fonts/HelveticaNeueThin.otf",
+            "./assets/fonts/HelveticaNeueBold.otf",
+            "./assets/fonts/HelveticaNeueLight.otf",
+            "./assets/fonts/HelveticaNeueMedium.otf"
           ]
         }
       ],
