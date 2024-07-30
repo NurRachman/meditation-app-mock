@@ -9,6 +9,7 @@ module.exports = {
   classicRed: '#FF4D4F',
   lightGray: '#D9D9D9',
   frenchSkyBlue: '#8C96FF',
+  cultured: '#F5F5F9',
   text: {
     black: '#3F414E',
     grey: '#A1A4B2',
@@ -17,5 +18,6 @@ module.exports = {
   },
   border: {
     grey: '#EBEAEC',
+    grey2: '#E1E1E5',
   }
 }

@@ -1,4 +1,4 @@
-import { Image, SafeAreaView, ScrollView, Text, View } from "@/ui";
+import { Image, Pressable, SafeAreaView, ScrollView, Text, View } from "@/ui";
 import { useRouter } from "expo-router";
 import React from "react";
 import { twMerge as tw } from 'tailwind-merge';
@@ -74,19 +74,20 @@ export default function TopicList() {
                 const previousIsSmall = index > 0 && (index - 1) % 4 !== 0 && (index - 1) % 4 !== 3;
                 const cardSize = isLarge ? 'h-[210px]' : 'h-[167px]';
                 return (
-                  <View
+                  <Pressable
                     key={`topic-item-${index}`}
                     className={tw(
                       `rounded-[10px] pb-[20px] overflow-hidden`,
                       cardSize,
                       ((isLarge && previousIsSmall) || index > 3) ? 'top-[-43px]' : ''
                     )}
-                    style={{ backgroundColor: value.bgColor, width: '47%' }}>
+                    style={{ backgroundColor: value.bgColor, width: '47%' }}
+                    onPress={() => router.push('schedule')}>
                     <View className="flex-1 w-full items-center">
                       <Image source={value.illustration} className={value.illustrationStyle} contentFit="contain" />
                     </View>
                     <Text variant="bold" className="text-lg mx-[15px] " style={{ color: value.textColor }}>{value.label}</Text>
-                  </View>
+                  </Pressable>
                 );
               })}
             </View>
