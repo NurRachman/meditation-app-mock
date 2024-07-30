@@ -1,5 +1,6 @@
 import { WheelPicker } from "@/components/WheelPicker";
 import { Button, Pressable, SafeAreaView, ScrollView, Text, View } from "@/ui";
+import { useRouter } from "expo-router";
 import React, { useMemo, useState } from "react";
 import { tv } from "tailwind-variants";
 
@@ -50,6 +51,7 @@ const ScheduleItem = ({
 };
 
 export default function Schedule() {
+  const router = useRouter();
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
 
   const onSelectDay = (val: string) => {
@@ -62,6 +64,10 @@ export default function Schedule() {
     }
 
     setSelectedDays(tempDays);
+  };
+
+  const onNextPage = () => {
+    router.push("(tabs)");
   };
 
   return (
@@ -119,11 +125,12 @@ export default function Schedule() {
           ))}
         </View>
 
-        <Button label="SAVE" />
+        <Button label="SAVE" onPress={onNextPage} />
         <Button
           variant="outline"
           className="mt-[16px] border-0"
           label="NO THANKS"
+          onPress={onNextPage}
         />
       </ScrollView>
     </SafeAreaView>

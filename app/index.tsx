@@ -13,8 +13,9 @@ export default function Index() {
     <View className="flex-1 bg-white">
       <Image
         className="w-[168px] h-[30px] self-center absolute z-10 top-[100px]"
-        source={require('../assets/images/logo/logo-silent-moon.png')}
-        contentFit="contain" />
+        source={require("../assets/images/logo/logo-silent-moon.png")}
+        contentFit="contain"
+      />
       <ImageBackground
         source={require("../assets/images/onboarding-frame.png")}
         className="w-full h-3/5 justify-center"
@@ -28,14 +29,22 @@ export default function Index() {
       </ImageBackground>
 
       <View className="px-[20px] py-[30px] items-center flex-1 bg-white">
-        <Text className="text-3xl" variant="bold" >We are what we do</Text>
-        <Text className="mt-[15px] px-[20px] text-base text-text-grey text-center" variant="thin">
+        <Text className="text-3xl" variant="bold">
+          We are what we do
+        </Text>
+        <Text
+          className="mt-[15px] px-[20px] text-base text-text-grey text-center"
+          variant="thin"
+        >
           {"Thousand of people are usign silent moon for smalls meditation "}
         </Text>
 
         <View className="flex-1 mt-[24px] mb-[24px] justify-end w-full">
           <Button label="SIGN UP" onPress={onNavigateToSignUp} />
-          <Text variant="medium" className="tracking-widest text-text-grey self-center mt-[20px]">
+          <Text
+            variant="medium"
+            className="tracking-widest text-text-grey self-center mt-[20px]"
+          >
             {"ALREADY HAVE AN ACCOUNT? "}
             <Text
               variant="medium"
@@ -48,5 +57,5 @@ export default function Index() {
         </View>
       </View>
     </View>
-  )
+  );
 }
