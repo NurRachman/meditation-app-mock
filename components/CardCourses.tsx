@@ -1,8 +1,10 @@
 import { Button, Image, Text, View } from "@/ui";
 import { ImageSource } from "expo-image";
+import { useRouter } from "expo-router";
 import React from "react";
 
 interface Props {
+  id: number;
   category: string;
   type: string;
   duration: string;
@@ -15,6 +17,8 @@ interface Props {
 }
 
 export default function CardCourses(props: Props) {
+  const router = useRouter();
+
   return (
     <View
       className="w-[165px] min-h-[210px] rounded-[10px] bg-primary p-[15px] overflow-hidden"
@@ -54,6 +58,9 @@ export default function CardCourses(props: Props) {
           className="w-[70px] min-h-[35px] rounded-[25px]"
           textStyle={{ color: props.btnTextColor }}
           style={{ backgroundColor: props.btnColor }}
+          onPress={() => {
+            router.push({ pathname: `course/${props.id}`, params: { category: props.category, type: props.type } })
+          }}
         />
       </View>
     </View>

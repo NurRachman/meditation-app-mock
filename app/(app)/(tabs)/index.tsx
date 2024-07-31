@@ -61,6 +61,7 @@ export default function Home() {
 
         <View className="flex-row justify-between mt-[30px]">
           <CardCourses
+            id={1}
             category="Basics"
             type="Course"
             duration="3-10 MIN"
@@ -72,6 +73,7 @@ export default function Home() {
             image={require("../../../assets/images/illustration/illustration-basic-course.png")}
           />
           <CardCourses
+            id={2}
             category="Relaxation"
             type="Music"
             duration="3-10 MIN"
