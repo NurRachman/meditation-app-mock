@@ -11,11 +11,16 @@ module.exports = {
   frenchSkyBlue: "#8C96FF",
   cultured: "#F5F5F9",
   metalicSilver: "#A0A3B1",
+  platinum: "#E5E5E5",
+  topaz: "#FFC97E",
+  onyx: "#333242",
   text: {
     black: "#3F414E",
     grey: "#A1A4B2",
     mediumGray: "#A6A6A6",
     blanchedAlmond: "#FFECCC",
+    champagne: "#F7E8D0",
+    darkSilver: "#524F53",
   },
   border: {
     grey: "#EBEAEC",

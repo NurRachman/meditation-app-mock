@@ -1,6 +1,7 @@
 import { WheelPicker } from "@/components/WheelPicker";
 import { Button, Pressable, SafeAreaView, ScrollView, Text, View } from "@/ui";
-import { useRouter } from "expo-router";
+import { StackActions } from "@react-navigation/native";
+import { useNavigationContainerRef, useRouter } from "expo-router";
 import React, { useMemo, useState } from "react";
 import { tv } from "tailwind-variants";
 
@@ -52,6 +53,7 @@ const ScheduleItem = ({
 
 export default function Schedule() {
   const router = useRouter();
+  const rootNavigation = useNavigationContainerRef();
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
 
   const onSelectDay = (val: string) => {
@@ -67,7 +69,8 @@ export default function Schedule() {
   };
 
   const onNextPage = () => {
-    router.push("(tabs)");
+    rootNavigation.dispatch(StackActions.popToTop());
+    router.replace("(tabs)");
   };
 
   return (
@@ -111,10 +114,7 @@ export default function Schedule() {
           Everyday is best, but we recommend picking at least five.
         </Text>
 
-        <View
-          className="flex-row items-center justify-center my-[40px]"
-          style={{ gap: 14 }}
-        >
+        <View className="flex-row items-center justify-between my-[40px]">
           {days.map((value, index) => (
             <ScheduleItem
               key={`day-${index}`}

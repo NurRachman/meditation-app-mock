@@ -1,5 +1,5 @@
 import { Colors } from "@/constants/Colors";
-import { Image, Pressable, Text, View, colors } from "@/ui";
+import { Image, Pressable, SafeAreaView, Text, View, colors } from "@/ui";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { Tabs } from "expo-router";
 import type {} from "expo-router";
@@ -54,7 +54,8 @@ export default function TabLayout() {
 
 function TabLayoutNav() {
   return (
-    <Tabs
+    <SafeAreaView className="flex-1 bg-white">
+      <Tabs
       tabBar={(props) => <TabBar {...props} />}
       screenOptions={{
         tabBarActiveTintColor: Colors.light.tint,
@@ -69,13 +70,14 @@ function TabLayoutNav() {
         />
       ))}
     </Tabs>
+    </SafeAreaView>
   );
 }
 
 function TabBar(props: BottomTabBarProps) {
   const { state, navigation, descriptors } = props;
   return (
-    <View className="flex-row items-center justify-between min-h-[112px] bg-white px-[20px]">
+    <View className="flex-row items-center justify-between pt-[20px] bg-white px-[20px]">
       {state.routes.map((value, index) => {
         const focused = state.index === index;
         const styles = tabVariant({ focus: focused });
